@@ -76,7 +76,7 @@ Template.comment.events({
     e.preventDefault();
 
     const t = e.target;
-    const comment = t.comment.value;
+    let comment = t.comment.value;
     let postId = FlowRouter.getParam('id');
     Meteor.call('blogs.comment', postId, Meteor.userId(), Meteor.user().profile.name, comment)
     

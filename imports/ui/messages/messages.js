@@ -47,8 +47,9 @@ Template.message.events({
     let fromId = FlowRouter.getParam('rid');
     let message = document.querySelector('#message').value;
     let chatId = Messages.find({ users: {$all:[fromId, toId]}}).fetch();
-
-    if(chatId[0]._id == 'undefined') {
+    
+    console.log(chatId.length)
+    if(chatId.length === 0) {
       Meteor.call('messages.insert', toId, fromId, message, function(err, res) {
         if (err) {
           console.log(error.reason);
