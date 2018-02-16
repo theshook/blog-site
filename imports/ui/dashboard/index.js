@@ -15,6 +15,6 @@ Template.dashboard.onCreated(function bodyOnCreated() {
 
 Template.dashboard.helpers({
   users() {
-    console.log(Blogs.find().fetch())
+    return Blogs.find();
   }
 });

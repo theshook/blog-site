@@ -20,6 +20,9 @@ Template.navbar.helpers({
 });
 
 Template.navbar.events({
+  'click .blogLists'() {
+    FlowRouter.go('/blogs');
+  },
   'click .logout' () {
     Meteor.logout( function (err, res) {
       if (err) {
