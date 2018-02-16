@@ -1,0 +1,35 @@
+<template name="blog">
+  <h1>Blogs</h1>
+  {{#each blogs}}
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <a href="/blogs/{{_id}}">{{title}}</a>
+        <p class="pull-right">{{date}}</p>
+      </div>
+      <div class="panel-body">
+        {{blog}}
+        <hr>
+        {{> uploadedFiles}}
+      </div>
+      <div class="panel-footer">Comments 0</div>
+    </div>
+  {{/each}}
+</template>
+
+<template name="uploadedFiles">
+  {{#if uploadedFiles.count}}
+    {{#each file in uploadedFiles.each}}
+      {{#if file.isVideo}}
+        <video controls="controls" class="img-responsive">
+          <source src="{{file.link}}?play=true" type="{{file.type}}" />
+          <!-- Same as: -->
+          <!-- <source src="{{fileURL videoFile}}?play=true" type="{{videoFile.type}}" /> -->
+        </video>
+      {{else}}
+        <img src="{{file.link}}" alt="{{file.name}}" class="img-responsive"/>
+      {{/if}}
+    {{/each}}
+  {{else}}
+    <div>No files uploaded, yet</div>
+  {{/if}}
+</template>

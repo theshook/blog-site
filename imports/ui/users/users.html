@@ -1,0 +1,21 @@
+<template name="users">
+  <h1>{{users.profile.name}} Blogs
+    {{#unless isOwner}}
+      <a class="pull-right btn btn-info PmMessage">Message</a>
+    {{/unless}}
+  </h1>
+  {{#each blogs}}
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <a href="/blogs/{{_id}}">{{title}}</a>
+        <p class="pull-right">{{date createdAt}}</p>
+      </div>
+      <div class="panel-body">
+        {{blog}}
+        <hr>
+        {{> uploadedFiles}}
+      </div>
+      <div class="panel-footer">Comments 0</div>
+    </div>
+  {{/each}}
+</template>

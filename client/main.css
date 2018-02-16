@@ -1,0 +1,9 @@
+/* CSS declarations go here */
+.panel-body  {
+  word-break:break-all
+}
+
+.scroll {
+  max-height: 300px;
+  overflow-y:scroll; 
+}

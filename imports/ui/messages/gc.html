@@ -1,0 +1,60 @@
+<template name="gc">
+  <h3>Group Chat code: {{code}}</h3>
+  <div class="row">
+    <div class="col-md-7">
+      <div class="well scroll">
+        <div class="col-md-12">
+          {{#each messagesC}}
+            {{#each messages}}
+                <div class="panel 
+                {{#if $eq userId currentUser._id}} 
+                  text-right panel-default
+                {{else}} 
+                  text-left panel-info
+                {{/if}}">
+                  <div class="panel-heading">
+                    <h4>
+                      {{#if $eq userId currentUser._id}} 
+                        You
+                      {{else}}
+                        {{usersC userId}}
+                      {{/if}}
+                    </h4>
+                  </div>
+                  <div class="panel-body">
+                    {{message}}
+                  </div>
+                  <div class="panel-footer">
+                    {{date mDate}}
+                  </div>
+                </div>
+            {{/each}}
+          {{/each}}
+        </div>
+        <div class="col-md-7">
+          <br>
+        </div>
+      </div>
+      <hr>
+      <div class="well">
+        <div class="input-group">
+          <textarea class="form-control" name="message" id="message" cols="10" rows="3" style="resize: none;"></textarea>    
+            <span class="input-group-addon btn btn-primary send">Send</span>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-md-4">
+      <h4>Participants</h4>
+      <div class="well well-sm scroll">
+        <ul class="list-group">
+          {{#each messagesC}}
+            {{#each users}}
+              <li class="list-group-item">{{usersC userId}}</li>
+            {{/each}}
+          {{/each}}
+        </ul>
+      </div>
+    </div>
+  </div>
+</template>

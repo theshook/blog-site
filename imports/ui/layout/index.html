@@ -1,0 +1,12 @@
+<template name="layout">
+  <body>
+    {{> navbar }}
+    <div class="container">
+      {{#if currentUser}}
+        {{> Template.dynamic template=main}}
+      {{else}}
+        {{> Template.dynamic template=landing}}
+      {{/if}}
+    </div>
+  </body>
+</template>

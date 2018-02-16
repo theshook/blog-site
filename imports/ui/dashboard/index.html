@@ -1,0 +1,23 @@
+<template name="dashboard">
+  <h1>Dashboard</h1>
+  <div class="row">
+    {{#each users}}
+      {{#if count}}
+        <div class="col-md-4">
+          <div class="panel panel-success">
+            <div class="panel-heading">
+              <h3 class="panel-title">
+                {{#each auser}}
+                  <em><a href="/users/{{_id}}">{{profile.name}}</a></em>
+                {{/each}}
+              </h3>
+            </div>
+            <div class="panel-body">
+              Number of Blogs: {{count}}
+            </div>
+          </div>
+        </div>
+      {{/if}}
+    {{/each}}
+  </div>
+</template>
