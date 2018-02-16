@@ -11,7 +11,7 @@
         {{/if}}
       {{/if}}  
       <p class="pull-right">{{date blog.createdAt}}</p>
-      <p>Author: <em><a href="/users/{{user._id}}">{{user.profile.name}}</a></em></p>
+      <p>Author: <em><a href="/users/{{blog.owner}}">{{user blog.owner}}</a></em></p>
     </div>
     <div class="panel-body">
       {{blog.blog}}

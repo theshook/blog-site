@@ -28,6 +28,7 @@ blog = function(id) {
 Template.comment.onCreated(function bodyOnCreated() {
   this.state = new ReactiveDict();
   Meteor.subscribe('blogs');
+  Meteor.subscribe('users');
 });
 
 Template.comment.helpers({
@@ -36,11 +37,10 @@ Template.comment.helpers({
     blog(urlId)
     return blogs;
   },
-  user() {
-    urlId = FlowRouter.getParam('id');
-    if (blog(urlId)) {
-      let user = Meteor.users.findOne({_id: blogs.owner});
-      return user;
+  user(id) {
+    let a = Meteor.users.findOne({_id: id});
+    if (a) {
+      return a.profile.name;
     }
   },
   blogComment() {
