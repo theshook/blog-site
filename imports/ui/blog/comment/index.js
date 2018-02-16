@@ -37,12 +37,14 @@ Template.comment.helpers({
     return blogs;
   },
   user() {
+    urlId = FlowRouter.getParam('id');
     if (blog(urlId)) {
       let user = Meteor.users.findOne({_id: blogs.owner});
       return user;
     }
   },
   blogComment() {
+    urlId = FlowRouter.getParam('id');
     return Blogs.find({_id: urlId});
   },
   date(dateTime) {
